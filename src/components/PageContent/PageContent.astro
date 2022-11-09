@@ -1,0 +1,340 @@
+---
+import type { Frontmatter } from "../../config";
+import TableOfContents from "../RightSidebar/TableOfContents";
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+  frontmatter: Frontmatter;
+  headings: MarkdownHeading[];
+};
+
+const { frontmatter, headings } = Astro.props as Props;
+---
+
+<article id="article" class="p-0 h-full flex flex-col">
+  <section class="main-section mb-16">
+    <div>
+      <h1 class="text-4xl mb-0" id="overview">{frontmatter.title}</h1>
+      <p class="text-lg text-gray-500 dark:text-gray-400 mb-4">
+        {frontmatter.description}
+      </p>
+    </div>
+    <nav class="block sm:hidden">
+      <TableOfContents client:media="(max-width: 50em)" headings={headings} />
+    </nav>
+    <div id="markdown">
+      <slot />
+    </div>
+  </section>
+</article>
+
+<style is:global lang="scss">
+  nav .heading-link {
+    @apply text-base border-l-4 border-solid border-l-zinc-200 dark:border-l-zinc-800;
+    @apply hover:text-blue-500 active:text-blue-800 dark:hover:text-blue-500 dark:active:text-blue-700;
+    @apply hover:border-l-blue-500 active:border-l-blue-800 dark:hover:border-l-blue-500 dark:active:border-l-blue-700;
+    padding: 0.1rem 0 0.1rem 1rem;
+    a {
+      @apply inline-flex gap-2 w-full px-1 text-inherit no-underline;
+    }
+    &.depth-3 {
+      @apply pl-8;
+    }
+    &.depth-4 {
+      @apply pl-12;
+    }
+  }
+  #markdown {
+    h1 {
+      @apply text-3xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    p {
+      @apply text-lg py-1 leading-tight md:leading-normal;
+    }
+
+    a {
+      @apply text-blue-500 underline hover:text-blue-600 active:text-blue-800 dark:hover:text-blue-400 dark:active:text-blue-700;
+    }
+
+    ol {
+      @apply list-decimal pl-10 text-lg;
+    }
+
+    ul {
+      @apply list-disc pl-10 text-lg;
+    }
+
+    pre.astro-code {
+      @apply p-6 overflow-auto;
+    }
+
+    code * {
+      font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",
+        monospace;
+    }
+
+    :not(pre) > code {
+      @apply bg-stone-200 dark:bg-stone-700 rounded px-1;
+    }
+
+    table {
+      @apply table-fixed w-full rounded-lg;
+    }
+
+    thead {
+      @apply text-left border-b-2 border-zinc-300 dark:border-zinc-700 bg-zinc-200 dark:bg-zinc-800;
+    }
+    thead th {
+      @apply p-2;
+    }
+
+    tbody td {
+      @apply p-2 break-words;
+    }
+    tbody tr:nth-child(even) {
+      @apply bg-zinc-200 dark:bg-zinc-800;
+    }
+
+    :is(h2, h3):not(:first-child) {
+      @apply mt-12;
+    }
+
+    :is(h4, h5, h6):not(:first-child) {
+      @apply mt-8;
+    }
+
+    /**
+    * One Dark theme for prism.js
+    * Based on Atom's One Dark theme: https://github.com/atom/atom/tree/master/packages/one-dark-syntax
+    */
+
+    code.astro-code,
+    pre.astro-code {
+      background: hsl(220, 13%, 18%);
+      color: hsl(220, 14%, 71%);
+      text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      line-height: 1.5;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+    }
+
+    /* Selection */
+    code.astro-code::-moz-selection,
+    code.astro-code *::-moz-selection,
+    pre.astro-code *::-moz-selection {
+      background: hsl(220, 13%, 28%);
+      color: inherit;
+      text-shadow: none;
+    }
+
+    code.astro-code::selection,
+    code.astro-code *::selection,
+    pre.astro-code *::selection {
+      background: hsl(220, 13%, 28%);
+      color: inherit;
+      text-shadow: none;
+    }
+
+    /* Code blocks */
+    pre.astro-code {
+      overflow: auto;
+      border-radius: 0.3em;
+    }
+
+    /* Inline code */
+    :not(pre) > code.astro-code {
+      border-radius: 0.3em;
+      white-space: normal;
+    }
+
+    /* Print */
+    @media print {
+      code.astro-code,
+      pre.astro-code {
+        text-shadow: none;
+      }
+    }
+
+    .token.comment,
+    .token.prolog,
+    .token.cdata {
+      color: hsl(220, 10%, 40%);
+    }
+
+    .token.doctype,
+    .token.punctuation,
+    .token.entity {
+      color: hsl(220, 14%, 71%);
+    }
+
+    .token.attr-name,
+    .token.class-name,
+    .token.boolean,
+    .token.constant,
+    .token.number,
+    .token.atrule {
+      color: hsl(29, 54%, 61%);
+    }
+
+    .token.keyword {
+      color: hsl(286, 60%, 67%);
+    }
+
+    .token.property,
+    .token.tag,
+    .token.symbol,
+    .token.deleted,
+    .token.important {
+      color: hsl(355, 65%, 65%);
+    }
+
+    .token.selector,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted,
+    .token.regex,
+    .token.attr-value,
+    .token.attr-value > .token.punctuation {
+      color: hsl(95, 38%, 62%);
+    }
+
+    .token.variable,
+    .token.operator,
+    .token.function {
+      color: hsl(207, 82%, 66%);
+    }
+
+    .token.url {
+      color: hsl(187, 47%, 55%);
+    }
+
+    /* HTML overrides */
+    .token.attr-value > .token.punctuation.attr-equals,
+    .token.special-attr > .token.attr-value > .token.value.css {
+      color: hsl(220, 14%, 71%);
+    }
+
+    /* CSS overrides */
+    .language-css .token.selector {
+      color: hsl(355, 65%, 65%);
+    }
+
+    .language-css .token.property {
+      color: hsl(220, 14%, 71%);
+    }
+
+    .language-css .token.function,
+    .language-css .token.url > .token.function {
+      color: hsl(187, 47%, 55%);
+    }
+
+    .language-css .token.url > .token.string.url {
+      color: hsl(95, 38%, 62%);
+    }
+
+    .language-css .token.important,
+    .language-css .token.atrule .token.rule {
+      color: hsl(286, 60%, 67%);
+    }
+
+    /* JS overrides */
+    .language-javascript .token.operator {
+      color: hsl(286, 60%, 67%);
+    }
+
+    .language-javascript
+      .token.template-string
+      > .token.interpolation
+      > .token.interpolation-punctuation.punctuation {
+      color: hsl(5, 48%, 51%);
+    }
+
+    /* JSON overrides */
+    .language-json .token.operator {
+      color: hsl(220, 14%, 71%);
+    }
+
+    .language-json .token.null.keyword {
+      color: hsl(29, 54%, 61%);
+    }
+
+    /* MD overrides */
+    .language-markdown .token.url,
+    .language-markdown .token.url > .token.operator,
+    .language-markdown .token.url-reference.url > .token.string {
+      color: hsl(220, 14%, 71%);
+    }
+
+    .language-markdown .token.url > .token.content {
+      color: hsl(207, 82%, 66%);
+    }
+
+    .language-markdown .token.url > .token.url,
+    .language-markdown .token.url-reference.url {
+      color: hsl(187, 47%, 55%);
+    }
+
+    .language-markdown .token.blockquote.punctuation,
+    .language-markdown .token.hr.punctuation {
+      color: hsl(220, 10%, 40%);
+      font-style: italic;
+    }
+
+    .language-markdown .token.code-snippet {
+      color: hsl(95, 38%, 62%);
+    }
+
+    .language-markdown .token.bold .token.content {
+      color: hsl(29, 54%, 61%);
+    }
+
+    .language-markdown .token.italic .token.content {
+      color: hsl(286, 60%, 67%);
+    }
+
+    .language-markdown .token.strike .token.content,
+    .language-markdown .token.strike .token.punctuation,
+    .language-markdown .token.list.punctuation,
+    .language-markdown .token.title.important > .token.punctuation {
+      color: hsl(355, 65%, 65%);
+    }
+
+    /* General */
+    .token.bold {
+      font-weight: bold;
+    }
+
+    .token.comment,
+    .token.italic {
+      font-style: italic;
+    }
+
+    .token.entity {
+      cursor: help;
+    }
+
+    .token.namespace {
+      opacity: 0.8;
+    }
+  }
+</style>

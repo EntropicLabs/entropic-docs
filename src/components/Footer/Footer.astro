@@ -1,0 +1,57 @@
+---
+import EntropicLogo from "../EntropicLogo.astro";
+import ThemeToggle from "../RightSidebar/ThemeToggleButton";
+
+type Props = {};
+const {} = Astro.props as Props;
+
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="px-8 py-4 mt-auto border-t-2 border-t-zinc-100 dark:border-t-zinc-800"
+>
+  <div class="constrained">
+    <div class="flex justify-between">
+      <div>
+        <div class="flex space-x-4">
+          <EntropicLogo classes="w-20 h-20"/>
+          <div class="flex flex-col">
+            <a href="/" class="text-sm font-bold text-zinc-500 uppercase">
+              Home
+            </a>
+            <a href="/about" class="text-sm font-bold text-zinc-500 uppercase">
+              About
+            </a>
+            <a href="/beacon" class="text-sm font-bold text-zinc-500 uppercase">
+              Beacon
+            </a>
+            <a href="/beacon/docs" class="text-sm font-bold text-zinc-500 uppercase">
+              Documentation
+            </a>
+          </div>
+          <div class="flex flex-col">
+            <a
+              href="https://github.com/EntropicLabs"
+              class="text-sm font-bold text-zinc-500 uppercase"
+            >
+              Github
+            </a>
+            <a
+              href="https://twitter.com/Entropic_Labs"
+              class="text-sm font-bold text-zinc-500 uppercase"
+            >
+              Twitter
+            </a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ThemeToggle client:visible />
+      </div>
+    </div>
+    <p class="text-sm text-zinc-400 mt-4 text-left dark:text-zinc-600">
+      © {year} Entropic Labs
+    </p>
+  </div>
+</footer>

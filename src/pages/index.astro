@@ -1,0 +1,36 @@
+---
+import EntropicLogo from "../components/EntropicLogo.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+	<div class="w-screen h-screen flex flex-col justify-center items-center">
+		<EntropicLogo classes="m-4 w-36 h-36"/>
+		<h1 class="text-3xl uppercase tracking-widest px-2 font-thin mb-8">Entropic Labs</h1>
+		<div class="flex items-center space-x-8">
+			<a href="/beacon" class="no-underline">
+				<div
+					class="px-3 py-2 rounded-md transition-colors w-28 text-center bg-blue-700 hover:bg-blue-800 dark:hover:bg-blue-600 text-zinc-100 hover:text-white font-bold">
+					Beacon
+				</div>
+			</a>
+	
+			<a href="/about" class="no-underline">
+				<div
+					class="px-3 py-2 rounded-md transition-colors w-28 text-center bg-blue-700 hover:bg-blue-800 dark:hover:bg-blue-600 text-zinc-100 hover:text-white font-bold">
+					About
+				</div>
+			</a>
+		</div>
+		<div class="flex items-center py-4 space-x-2">
+			<a href="https://twitter.com/Entropic_Labs">
+				<img src="/assets/twitter-black.svg" alt="twitter" class="w-6 h-6 dark:hidden" />
+				<img src="/assets/twitter-white.svg" alt="twitter" class="w-6 h-6 hidden dark:block" />
+			</a>
+			<a href="https://github.com/EntropicLabs/">
+				<img src="/assets/github-black.svg" alt="github" class="w-6 h-6 dark:hidden" />
+				<img src="/assets/github-white.svg" alt="github" class="w-6 h-6 hidden dark:block" />
+			</a>
+		</div>
+	</div>
+</MainLayout>

@@ -1,0 +1,36 @@
+---
+import HeadCommon from "../components/HeadCommon.astro";
+import HeadSEO from "../components/HeadSEO.astro";
+import * as CONFIG from "../config";
+
+type Props = {
+  title?: string;
+  frontmatter?: CONFIG.Frontmatter;
+};
+
+const { frontmatter, title } = Astro.props as Props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html dir={frontmatter?.dir ?? "ltr"} class="initial">
+  <head>
+    <HeadCommon />
+    <HeadSEO
+      canonicalUrl={canonicalURL}
+      title={frontmatter?.title ?? title}
+      description={frontmatter?.description}
+      image={frontmatter?.image}
+    />
+    <title>
+      {
+        frontmatter?.title
+          ? `${frontmatter.title} | ${CONFIG.SITE.docTitle}`
+          : CONFIG.SITE.title
+      }
+    </title>
+  </head>
+
+  <body class="bg-base text-base">
+    <slot />
+  </body>
+</html>

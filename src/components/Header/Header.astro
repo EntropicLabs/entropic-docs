@@ -1,0 +1,59 @@
+---
+import * as CONFIG from "../../config";
+import EntropicLogo from "../EntropicLogo.astro";
+import SkipToContent from "./SkipToContent.astro";
+import SidebarToggle from "./SidebarToggle";
+import Search from "./Search";
+
+type Props = {
+  currentPage: string;
+};
+---
+
+<header
+  class="w-full flex items-center justify-center overflow-hidden top-0 h-16 bg-base z-20 sticky md:static md:px-8"
+>
+  <SkipToContent />
+  <nav
+    class="flex items-center justify-end gap-4 w-full py-4"
+    title="Top Navigation"
+  >
+    <div class="md:hidden">
+      <SidebarToggle client:idle />
+    </div>
+    <div
+      class="flex flex-1 text-2xl flex-shrink-0 font-medium leading-none gap-1 md:w-auto md:m-0 md:z-0"
+    >
+      <a
+        href="/"
+        class="text-zinc-900 dark:text-white no-underline flex px-2 py-1 -mx-2 -my-1 font-light transition-all duration-150 hover:text-blue-600 active:text-blue-800 dark:hover:text-blue-400 dark:active:text-blue-700"
+      >
+        <EntropicLogo classes="h-8 sm:h-10 w-8 sm:w-10 mr-3" />
+        <h1 class="hidden md:block text-inherit m-0 text-3xl font-normal whitespace-nowrap">
+          {CONFIG.SITE.docTitle ?? "Documentation"}
+        </h1>
+      </a>
+    </div>
+    <div class="flex-grow"></div>
+    <div class="search hidden relative z-10 pr-3 md:flex w-48 sm:w-80">
+      <Search client:idle />
+    </div>
+  </nav>
+</header>
+
+<style>
+  nav {
+    max-width: 84rem;
+  }
+  /** Style Algolia */
+  :root {
+    --docsearch-primary-color: var(--theme-accent);
+    --docsearch-logo-color: var(--theme-text);
+  }
+</style>
+
+<style is:global>
+  .search-item > * {
+    flex-grow: 1;
+  }
+</style>

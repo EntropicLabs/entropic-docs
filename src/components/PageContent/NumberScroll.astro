@@ -1,0 +1,71 @@
+<script>
+  let content: HTMLParagraphElement;
+  let isScrolling = false;
+  
+  function startScrolling() {
+    isScrolling = true;
+    const numsToGen = 5000;
+    function generateNumbers(nums = 10000, fractionColored = 0.05): string {
+      const numbers = Array.from({ length: nums }, () =>
+        Math.floor(Math.random() * 255)
+      );
+      const colors = ["#fdb321", "#cc4928", "#349ad5"];
+      const text = numbers
+        .map((number, _index) => {
+          const color =
+            Math.random() < fractionColored
+              ? colors[Math.floor(Math.random() * colors.length)]
+              : "inherit";
+          return `<span style="color: ${color}">${number
+            .toString(16)
+            .toUpperCase()
+            .padStart(2, "0")}</span>`;
+        })
+        .join(" ");
+      return text;
+    }
+    content.innerHTML = generateNumbers(numsToGen);
+    function elementScroll(el: HTMLElement) {
+      el.scrollBy(0, 2);
+      if (el.scrollTop >= el.scrollHeight * 0.75) {
+        content.innerHTML = generateNumbers(numsToGen);
+        el.scrollTo(0, 0);
+      }
+      if (el.scrollTop < el.scrollHeight) {
+        requestAnimationFrame(() => elementScroll(el));
+      }
+    }
+
+    elementScroll(content.parentElement!);
+  }
+
+  let sm = window.matchMedia("(max-width: 640px)");
+  window.addEventListener("resize", () => {
+    if (sm.matches) {
+      isScrolling = false;
+    } else if (!isScrolling) {
+      startScrolling();
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    content = document.querySelector("#scrolling-text")!;
+    startScrolling();
+  });
+</script>
+
+<div class="w-full hidden sm:block" aria-hidden="true">
+  <div class="w-full h-full p-6 px-2 md:px-12">
+    <div
+      class="relative w-full h-full after:absolute after:z-10 after:bg-gradient-to-b after:from-transparent after:to-white dark:after:to-stone-900 after:h-6 after:bottom-0 after:w-full after:left-0 after:right-0 before:absolute before:z-10 before:bg-gradient-to-t before:from-transparent before:to-white dark:before:to-stone-900 before:h-6 before:top-0 before:w-full before:left-0 before:right-0"
+    >
+      <div class="relative overflow-hidden h-full">
+        <p
+          class="text-zinc-500 dark:text-zinc-400 flex-grow tabular-nums text-justify absolute top-0 left-0 bottom-0 right-0 select-none"
+          id="scrolling-text"
+        >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

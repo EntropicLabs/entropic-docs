@@ -1,0 +1,115 @@
+:root {
+  --font-fallback: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji;
+  --font-body: "Space Grotesk", var(--font-fallback);
+  --font-mono: "Fira Code", "IBM Plex Mono", Consolas, "Andale Mono WT",
+    "Andale Mono", "Lucida Console", "Lucida Sans Typewriter",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono",
+    "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+
+  /*
+   * Variables with --color-base prefix define
+   * the hue, and saturation values to be used for
+   * hsla colors.
+   *
+   * ex:
+   *
+   * --color-base-{color}: {hue}, {saturation};
+   *
+   */
+
+  --color-base-white: rgb(255 255 255);
+  --color-base-black: 240, 100%;
+  --color-base-blue: 212, 100%;
+  --color-base-blue-dark: 212, 72%;
+  --color-base-green: 158, 79%;
+  --color-base-orange: 22, 100%;
+  --color-base-purple: 269, 79%;
+  --color-base-red: 351, 100%;
+  --color-base-yellow: 41, 100%;
+
+  /*
+   * Color palettes are made using --color-base 
+   * variables, along with a lightness value to
+   * define different variants.
+   *
+   */
+
+  --color-gray-5: rgb(14 14 16);
+  --color-gray-10: rgb(24 24 27);
+  --color-gray-20: rgb(39 39 42);
+  --color-gray-30: rgb(63 63 70);
+  --color-gray-40: rgb(82 82 91);
+  --color-gray-50: rgb(113 113 122);
+  --color-gray-60: rgb(161 161 170);
+  --color-gray-70: rgb(212 212 216);
+  --color-gray-80: rgb(228 228 231);
+  --color-gray-90: rgb(244 244 245);
+  --color-gray-95: rgb(250 250 250);
+
+  --color-blue: var(--color-base-blue), 61%;
+  --color-blue-dark: var(--color-base-blue-dark), 48%;
+  --color-green: var(--color-base-green), 42%;
+  --color-orange: var(--color-base-orange), 50%;
+  --color-purple: var(--color-base-purple), 54%;
+  --color-red: var(--color-base-red), 54%;
+  --color-yellow: var(--color-base-yellow), 59%;
+}
+
+:root {
+  color-scheme: light;
+  --theme-accent: hsla(var(--color-blue), 1);
+  --theme-text-accent: hsla(var(--color-blue), 1);
+  --theme-text-accent-light: hsla(var(--color-blue-dark), 1);
+  --theme-accent-opacity: 0.15;
+  --theme-divider: var(--color-gray-95);
+  --theme-text: var(--color-gray-10);
+  --theme-text-light: var(--color-gray-40);
+  /* @@@: not used anywhere */
+  --theme-text-lighter: var(--color-gray-80);
+  --theme-bg: var(--color-base-white);
+  --theme-bg-hover: var(--color-gray-95);
+  --theme-bg-offset: var(--color-gray-90);
+  --theme-bg-accent: hsla(var(--color-blue), var(--theme-accent-opacity));
+  --theme-code-inline-bg: var(--color-gray-95);
+  --theme-code-inline-text: var(--theme-text);
+  --theme-code-bg: hsla(217, 19%, 27%, 1);
+  --theme-code-text: var(--color-gray-95);
+  --theme-navbar-height: 4rem;
+  --theme-selection-color: hsla(var(--color-blue), 1);
+  --theme-selection-bg: hsla(var(--color-blue), var(--theme-accent-opacity));
+}
+
+:root.theme-dark {
+  color-scheme: dark;
+  --theme-accent-opacity: 0.15;
+  --theme-accent: hsla(var(--color-blue), 1);
+  --theme-text-accent: hsla(var(--color-blue), 0.9);
+  --theme-text-accent-light: hsla(var(--color-blue), 1);
+  --theme-divider: var(--color-gray-10);
+  --theme-text: var(--color-gray-95);
+  --theme-text-light: var(--color-gray-80);
+
+  /* @@@: not used anywhere */
+  --theme-text-lighter: var(--color-gray-40);
+  --theme-bg: var(--color-gray-10);
+  --theme-bg-hover: var(--color-gray-40);
+  --theme-bg-offset: var(--color-gray-5);
+  --theme-code-inline-bg: var(--color-gray-10);
+  --theme-code-inline-text: var(--color-base-white);
+  --theme-code-bg: var(--color-gray-5);
+  --theme-code-text: var(--color-base-white);
+  --theme-selection-color: var(--color-base-white);
+  --theme-selection-bg: hsla(var(--color-purple), var(--theme-accent-opacity));
+
+  /* DocSearch [Algolia] */
+  --docsearch-modal-background: var(--theme-bg);
+  --docsearch-searchbox-focus-background: var(--theme-divider);
+  --docsearch-footer-background: var(--theme-divider);
+  --docsearch-text-color: var(--theme-text);
+  --docsearch-hit-background: var(--theme-divider);
+  --docsearch-hit-shadow: none;
+  --docsearch-hit-color: var(--theme-text);
+  --docsearch-footer-shadow: inset 0 2px 10px #000;
+  --docsearch-modal-shadow: inset 0 0 8px #000;
+}
