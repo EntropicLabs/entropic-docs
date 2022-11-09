@@ -40,5 +40,6 @@ export const SIDEBAR: Sidebar = {
 		{ text: 'Quickstart', link: 'beacon/docs/quickstart' },
 		{ text: 'Deployed Addresses', link: 'beacon/docs/deployed-addresses' },
 		{ text: 'Hosting Workers', link: 'beacon/docs/workers' },
+		{ text: 'API Reference', link: 'https://docs.rs/entropy_beacon_cosmos/latest/entropy_beacon_cosmos/' },
 	]
 };

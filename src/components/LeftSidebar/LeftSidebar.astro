@@ -20,7 +20,10 @@ const currentPageMatch = currentPage.endsWith("/")
             <h2 class="text-xl">{header}</h2>
             <ul>
               {children.map((child) => {
-                const url = Astro.site?.pathname + child.link;
+                let url = Astro.site?.pathname + child.link;
+                if (child.link.startsWith("http")) {
+                  url = child.link;
+                }
                 return (
                   <li class="nav-link">
                     <a
