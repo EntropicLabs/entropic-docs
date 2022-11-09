@@ -48,7 +48,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
       <div class="flex space-x-2">
         <a
           href="/beacon/docs/quickstart"
-          class="button text-white font-bold w-40 bg-blue-700 hover:bg-blue-800 dark:hover:bg-blue-600 no-underline"
+          class="button text-white font-medium w-40 bg-blue-700 hover:bg-blue-800 dark:hover:bg-blue-600 no-underline"
         >
           Start Building
         </a>
@@ -77,7 +77,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
           id="terra-dark"
         />
       </div>
-      <!-- <div class="h-10">
+      <div class="h-10" style="aspect-ratio: 201.75 / 49;">
         <img
           src="/assets/kujira-light.svg"
           class="max-h-full min-h-full dark:hidden"
@@ -88,7 +88,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
           class="max-h-full min-h-full hidden dark:block"
           id="kujira-dark"
         />
-      </div> -->
+      </div>
     </div>
   </div>
   <div class="constrained flex items-stretch space-x-4 mb-16">
@@ -218,7 +218,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
   }
 
   .card-button {
-    @apply text-lg button no-underline my-2 inline-block font-medium;
+    @apply text-base button no-underline my-2 inline-block font-medium;
   }
 
   #logo-carousel #terra-dark {
