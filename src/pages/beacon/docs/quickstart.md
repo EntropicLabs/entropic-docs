@@ -64,3 +64,11 @@ The dev worker has three main functions:
 * `Auto-submit Entropy` - The worker will automatically submit random entropy to the Beacon as requests come in. This can be kept open in a separate terminal window while you are developing your dApp.
 * `Manual-submit Entropy` - The worker will prompt you to manually enter and submit entropy to the Beacon as requests come in. This can be useful if you want to test your dApp with specific entropy values.
 * `Fetch active requests` - The worker will simply display request information as the requests come in. It will not submit any entropy.
+
+# Understanding the Entropy Example Contract
+The Example contract is a simple contract that demonstrates how to use and interact with the Beacon. It:
+1. Requests entropy from the Beacon
+2. Receives entropy from the Beacon
+3. Uses the entropy to determine whether a coin flip is heads or tails
+
+We recommend that you skim the [Integration Guide](/beacon/docs/integration) or read through the [contract's source code](https://github.com/EntropicLabs/entropy_example_contract) for a deeper understanding.
