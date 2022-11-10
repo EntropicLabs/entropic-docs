@@ -6,6 +6,14 @@ layout: ../../../layouts/DocsLayout.astro
 
 This page explains how to host an entropy worker, which will respond to requests that are submitted to the Beacon. This page is **not** necessarily for smart contract developers, only for those who wish to assist in running the Beacon's backend network. Keep in mind that hosting a worker is **still a Beta feature**, and not fully mature yet.
 
+THIS DOCUMENTATION IS OUTDATED:
+* The worker key registration process is currently permissioned. Please reach out to us if you would like to register keys for a worker.
+* The worker software has been rewritten, and is currently undocumented.
+
+See below for the old documentation.
+
+# Worker Setup
+
 Running a Worker is as simple as cloning the [worker repository](https://github.com/EntropicLabs/entropy_worker.git) and running the provided `docker-compose` configuration.
 
 The worker will whitelist VRF keys on the beacon contract, which requires a deposit to the Beacon contract. To prevent Sybil attacks and spam, this deposit is fully refundable *only* if the worker goes on to submit entropy requests. These parameters are available by query on the Beacon contract.  

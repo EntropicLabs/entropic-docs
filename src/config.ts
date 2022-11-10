@@ -38,8 +38,12 @@ export const SIDEBAR: Sidebar = {
 	],
 	'Developers': [
 		{ text: 'Quickstart', link: 'beacon/docs/quickstart' },
+		{ text: 'Integration Guide', link: 'beacon/docs/integration' },
 		{ text: 'Deployed Addresses', link: 'beacon/docs/deployed-addresses' },
-		{ text: 'Hosting Workers', link: 'beacon/docs/workers' },
+		{ text: 'EntropyCLI Reference', link: 'beacon/docs/entropycli' },
 		{ text: 'API Reference', link: 'https://docs.rs/entropy_beacon_cosmos/latest/entropy_beacon_cosmos/' },
-	]
+	],
+	'Worker Hosts': [
+		{ text: 'Hosting Workers', link: 'beacon/docs/workers' },
+	],
 };

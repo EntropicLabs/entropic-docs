@@ -37,28 +37,41 @@ const { frontmatter, headings } = Astro.props as Props;
     a {
       @apply inline-flex gap-2 w-full px-1 text-inherit no-underline;
     }
-    &.depth-3 {
+
+    &.depth-2 {
       @apply pl-8;
     }
-    &.depth-4 {
+
+    &.depth-3 {
       @apply pl-12;
+    }
+    &.depth-4 {
+      @apply pl-16;
     }
   }
   #markdown {
     h1 {
-      @apply text-3xl;
+      @apply text-4xl;
     }
 
     h2 {
-      @apply text-2xl;
+      @apply text-3xl;
     }
 
     h3 {
+      @apply text-2xl;
+    }
+
+    h4 {
       @apply text-xl;
     }
 
+    h1,h2,h3,h4,h5,h6 {
+      @apply mt-8 mb-2;
+    }
+
     p {
-      @apply text-lg py-1 leading-tight md:leading-normal;
+      @apply text-lg my-3 leading-tight md:leading-normal;
     }
 
     a {
@@ -74,7 +87,7 @@ const { frontmatter, headings } = Astro.props as Props;
     }
 
     pre.astro-code {
-      @apply p-6 overflow-auto;
+      @apply p-4 my-2 overflow-auto;
     }
 
     code * {
@@ -104,8 +117,8 @@ const { frontmatter, headings } = Astro.props as Props;
       @apply bg-zinc-200 dark:bg-zinc-800;
     }
 
-    :is(h2, h3):not(:first-child) {
-      @apply mt-12;
+    :is(h2):not(:first-child) {
+      @apply mt-4;
     }
 
     :is(h4, h5, h6):not(:first-child) {
