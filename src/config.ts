@@ -1,7 +1,7 @@
 export const SITE = {
 	title: 'Entropic Labs',
 	docTitle: 'Beacon Docs',
-	description: 'Your website description.',
+	description: 'Entropic Labs provides a decentralized, open-source, and secure Randomness Beacon.',
 };
 
 export const OPEN_GRAPH = {
