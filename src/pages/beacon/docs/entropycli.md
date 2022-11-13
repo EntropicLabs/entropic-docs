@@ -44,6 +44,7 @@ Manual Network Creation requires the following information:
 * `Gas Adjustment` - The gas adjustment used when calculating gas prices for transactions. When set higher than `1.0`, this will pad gas estimation to ensure that transactions are not rejected due to insufficient gas.
 * `Derivation Path` - The derivation path used to generate addresses for the network. This is used to generate addresses for the wallet. For example, `m/44'/118'/0'/0/0` for most Cosmos-SDK chains, and `m/44'/330'/0'/0/0` for Kujira.
 * `Chain Prefix` - The prefix used to encode addresses for the network. This is used to encode addresses for the wallet. For example, `terra` for Terra, `kujira` for Kujira, etc.
+* `Subsidized Callbacks` - Whether or not the beacon on this network supports zero-fee callbacks. This is set to `true` for Kujira, and `false` for Terra, by default.
 
 #### Wallet Creation
 The wizard will also prompt you to select a wallet to add to the configuration file. You can choose to use one of localterra's built-in wallets, or you can create a new wallet. If you choose to create a new wallet, you must enter a name and mnemonic. If you leave the mnemonic blank, the tool will attempt to fetch the mnemonic from the `MNEMONIC` environment every time the wallet is used.

@@ -18,3 +18,6 @@ The beacon is currently deployed on the following networks:
 | Terra (mainnet) | `terra1qt0uujams3gg4k8a9f0tjyxsdua5gjh86dwfcc66r4zv9xny02ms3qujeh` |
 | Kujira (testnet) | `kujira1xwz7fll64nnh4p9q8dyh9xfvqlwfppz4hqdn2uyq2fcmmqtnf5vsugyk7u` |
 | Kujira (mainnet) | `kujira1x623ehq3gqx9m9t8asyd9cgehf32gy94mhsw8l99cj3l2nvda2fqrjwqy5` |
+
+# Notes
+* The Beacon deployments on Kujira are fully subsidized -- no fees are required at all to request entropy from the beacon.

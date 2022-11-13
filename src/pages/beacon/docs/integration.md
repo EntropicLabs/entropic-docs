@@ -49,7 +49,7 @@ let beacon_addr = state.entropy_beacon_addr;
 let beacon_fee =
     CalculateFeeQuery::query(deps.as_ref(), callback_gas_limit, beacon_addr.clone())?;
 ```
-It is important that you query the Beacon for the fee before sending the request, as the fee may change over time. If your request specifies a fee that is too low to pay for the gas requested, then the request will not be accepted by the Beacon. If the gas requested does not sufficiently cover the execution of the callback, then the callback will fail and will NOT be retried.
+It is important that you query the Beacon for the fee before sending the request, as the fee may change over time. Please not that this fee *may* be zero. For example, on Kujira, beacon requests are subsidized and are free. If your request specifies a fee that is too low to pay for the gas requested, then the request will not be accepted by the Beacon. If the gas requested does not sufficiently cover the execution of the callback, then the callback will fail and will NOT be retried.
 
 
 Now that we have all the information we need, we can construct a request and send it to the Beacon:
