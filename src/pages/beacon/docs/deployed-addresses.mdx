@@ -1,0 +1,31 @@
+---
+title: Deployed Addresses
+description: Addresses of various deployments of the Beacon contract
+layout: ../../../layouts/DocsLayout.astro
+---
+import {ADDRESSES} from '../../../config.ts';
+
+The beacon is currently deployed on the following networks:
+* Terra (Pisco Testnet)
+* Terra (Phoenix Mainnet)
+* Kujira (Harpoon Testnet)
+* Kujira (Kaiyo Mainnet)
+
+# Deployed Contract Addresses
+
+<table>
+    <thead>
+        <tr>
+        <th>Network</th>
+        <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        {Object.entries(ADDRESSES).map(([_, info]) => (
+            <tr>
+                <td>{info.name}</td>
+                <td>{info.address}</td>
+            </tr>
+        ))}
+    </tbody>
+</table>

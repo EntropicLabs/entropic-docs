@@ -1,0 +1,20 @@
+---
+title: Terra Deployment
+description: Details about the Entropy Beacon Terra deployment
+layout: ../../../layouts/DocsLayout.astro
+---
+import BeaconQuerier from '../../../components/PageContent/BeaconQuerier.tsx';
+import { ADDRESSES } from '../../../config.ts';
+
+The Entropy Beacon is deployed on Terra's testnet, `pisco`, and its mainnet, `phoenix`. You can see the deployed addresses for the Beacon on the [Deployed Addresses](/beacon/docs/deployed-addresses) page.
+
+# Deployment Notes
+As part of the Entropic Labs community grant, the Entropy Beacon deployed on Terra's mainnet will soon subsidize fees using the community grant funds. This has not yet been implemented.
+
+The Terra deployment is currently in permissioned mode. For those interested in hosting workers, please reach out to the Entropic team.
+
+## Testnet Configuration
+<BeaconQuerier lcd={ADDRESSES['pisco'].lcd} client:load/>
+
+## Mainnet Configuration
+<BeaconQuerier lcd={ADDRESSES['phoenix'].lcd} client:load/>

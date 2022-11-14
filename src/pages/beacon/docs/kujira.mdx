@@ -1,0 +1,20 @@
+---
+title: Kujira Deployment
+description: Details about the Entropy Beacon Kujira deployment
+layout: ../../../layouts/DocsLayout.astro
+---
+import BeaconQuerier from '../../../components/PageContent/BeaconQuerier.tsx';
+import { ADDRESSES } from '../../../config.ts';
+
+The Entropy Beacon is deployed on Kujira's testnet, `harpoon`, and its mainnet, `kaiyo`. You can see the deployed addresses for the Beacon on the [Deployed Addresses](/beacon/docs/deployed-addresses) page.
+
+# Deployment Notes
+In collaboration with the Kujira team, we're happy to announce that the Entropy Beacon is fully subsidized on Kujira. This means that no fees are required at all to request entropy from the beacon. This includes both the protocol fee and the callback gas fee.
+
+The Kujira deployment is currently in permissioned mode. For those interested in hosting workers, please reach out to the Entropic team.
+
+## Testnet Configuration
+<BeaconQuerier lcd={ADDRESSES['harpoon'].lcd} client:load/>
+
+## Mainnet Configuration
+<BeaconQuerier lcd={ADDRESSES['kaiyo'].lcd} client:load/>
